@@ -40,7 +40,15 @@ while True:
         for i in result:
             print(i)
     elif(ch==4):
-        print("selected update the recipe")
+        name=input("Enter the recipe name ")
+        des=input("enter the recipe description to be updated")
+        pb=input("name of the chef to be updated ")
+        incre=input("enter the incrediants to be updated")
+        cat=input("Enter the category to be updated")
+        sql="UPDATE `recipes` SET `description`='"+des+"',`preparedby`='"+pb+"',`incrediants`='"+incre+"',`category`='"+cat+"' WHERE `title`='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("updated successfully")  
     elif(ch==5):
         print("selected delete recipe")
     elif(ch==6):
