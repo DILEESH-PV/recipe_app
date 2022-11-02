@@ -11,7 +11,8 @@ while True:
     print("3 display recipe details by name")
     print("4 update recipe")
     print("5 delete recipe")
-    print("6 exit")
+    print("6 search recipe by specific letter ")
+    print("7 exit")
     
     ch=int(input("select an option  : \n"))
     if (ch==1):  
@@ -56,4 +57,11 @@ while True:
         mydb.commit()
         print("deleted successfully")
     elif(ch==6):
+        sl= input("Enter the letter to search: ")
+        sql="SELECT `title`, `description`, `preparedby`, `incrediants`, `category` FROM `recipes` WHERE `title` LIKE '"+sl+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(ch==7):
         break
