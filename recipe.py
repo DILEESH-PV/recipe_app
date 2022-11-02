@@ -50,6 +50,10 @@ while True:
         mydb.commit()
         print("updated successfully")  
     elif(ch==5):
-        print("selected delete recipe")
+        name=input("Enter the recipe name for deletion ")
+        sql="DELETE FROM `recipes` WHERE `title`='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("deleted successfully")
     elif(ch==6):
         break
