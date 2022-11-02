@@ -12,7 +12,8 @@ while True:
     print("4 update recipe")
     print("5 delete recipe")
     print("6 search recipe by specific letter ")
-    print("7 exit")
+    print("7 display recipes by category")
+    print("8 exit")
     
     ch=int(input("select an option  : \n"))
     if (ch==1):  
@@ -64,4 +65,12 @@ while True:
         for i in result:
             print(i)
     elif(ch==7):
+        bc = input("Enter the category to view recipe: ")
+        sql = "SELECT * FROM `recipes` WHERE `category` = '"+bc+"'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+        
+    elif(ch==8):
         break
