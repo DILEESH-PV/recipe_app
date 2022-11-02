@@ -8,7 +8,7 @@ while True:
     print("\nSelect an option")
     print("1 add a recipe")
     print("2 view all recipes")
-    print("3 search a recipe")
+    print("3 display recipe details by name")
     print("4 update recipe")
     print("5 delete recipe")
     print("6 exit")
@@ -33,7 +33,12 @@ while True:
             print(i)
         print("\nselected view all recipe")
     elif(ch==3):
-        print("selected search recipe")
+        name=input("Enter the recipe name for searching the recipe")
+        sql="SELECT * FROM `recipes` WHERE `title`='"+name+"'"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(ch==4):
         print("selected update the recipe")
     elif(ch==5):
