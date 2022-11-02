@@ -26,7 +26,12 @@ while True:
         mydb.commit()      
         print("insertion successful")
     elif(ch==2):
-         print("selected view all recipe")
+        sql='SELECT * FROM `recipes`'
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
+        print("\nselected view all recipe")
     elif(ch==3):
         print("selected search recipe")
     elif(ch==4):
